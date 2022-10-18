@@ -1,0 +1,17 @@
+##Crear entorno virtual
+virtualenv -p python3 *Nombre de donde quedara*
+##Activacion entorno virtual
+.\*Nombre de la carpeta*\Scripts\activate
+##Crear un nuevo projecto
+django-admin startproject *nombre*
+##Crear nueva app
+python manage.py startapp *nombre*
+
+##Activar Server
+python manage.py runserver
+
+
+
+
+##Desactivacion entorno virtual
+deactivate
