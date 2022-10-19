@@ -1,0 +1,101 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <script src="{% static 'sweetalert2/sweetalert2.all.min.js'%}"></script>
+  </head>
+  <body style="background-color: #8B0000;">
+    <!--Parte de arriba-->
+      <div class="card">
+          <h2 style="text-align:center;">Parras's Inc.</h2>
+      </div>
+    <!--Barrita-->
+    <div class="conteiner-fluid">
+      <div class="row">
+      <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+          <div class="container-fluid">
+            <a class="navbar-brand px-3" href="/">Parra's Inc.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/equipos/list_equipo">pendiente</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/jugadores/list_jugador">pendiente</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/estadios/list_estadio">pendiente</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </nav>
+      <!--Termina barrita-->
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        {% if messages %}
+        {% for message in messages %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          <script>
+            Swal.fire({
+              "title": "Registrado",
+              "text": "{{ message }}",
+              "icon": "success",
+              "confirmButtonText": "OK"
+            })
+          </script>
+          {% endif %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+          <script>
+            Swal.fire({
+              "title": ":(",
+              "text": "{{ message }}",
+              "icon": "warning",
+              "confirmButtonText": "OK"
+            })
+          </script>
+          {% endif %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          <script>
+            Swal.fire({
+              "title": "ERROR!",
+              "text": "{{ message }}",
+              "icon": "error",
+              "confirmButtonText": "OK"
+            })
+          </script>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+  <div class="col-2"></div>
+</div>
+<div class="row">
+  <div class="col px-3">
+    <footer><font color="white">Hecho por Genaro Damian Martinez Perez</font></footer>
+  </div>
+</div>
+</div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="{% static 'mensage.js' %}"></script>
+  </body>
+</html>
